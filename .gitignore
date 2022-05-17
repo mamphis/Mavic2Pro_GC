@@ -2,4 +2,5 @@
 */obj/**
 
 *.pfx
-.vs/Mavic2Pro_GC/FileContentIndex/**
+.vs/**
+Mavic2Pro_GC/API.key
