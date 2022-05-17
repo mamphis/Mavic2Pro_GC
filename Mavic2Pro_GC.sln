@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32126.315
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mavic2Pro_GC", "Mavic2Pro_GC\Mavic2Pro_GC.csproj", "{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}"
 EndProject
@@ -12,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibs", "ExternalLib
 		ExternalLibs\DJIWindowsWrapper.dll = ExternalLibs\DJIWindowsWrapper.dll
 		ExternalLibs\DJIWindowsWrapper.winmd = ExternalLibs\DJIWindowsWrapper.winmd
 		ExternalLibs\pthread_dll-x64.dll = ExternalLibs\pthread_dll-x64.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projektmappenelemente", "Projektmappenelemente", "{5C0DCDD6-FA5D-4C6F-9C84-BF5DAA2E3490}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Global
