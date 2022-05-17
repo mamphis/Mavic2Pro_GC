@@ -2,6 +2,7 @@
 using Mavic2Pro_GC.View;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -32,8 +33,9 @@ namespace Mavic2Pro_GC
         private void NavView_Loaded(object sender, RoutedEventArgs e)
         {
             DJISDKManager.Instance.SDKRegistrationStateChanged += this.Instance_SDKRegistrationEvent;
+            string key = File.ReadAllText("API.key");
 
-            DJISDKManager.Instance.RegisterApp("<key>");
+            DJISDKManager.Instance.RegisterApp(key);
         }
 
         private async void Instance_SDKRegistrationEvent(SDKRegistrationState state, SDKError resultCode)
