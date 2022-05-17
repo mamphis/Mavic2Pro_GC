@@ -1,5 +1,7 @@
 ﻿using DJI.WindowsSDK;
+using GalaSoft.MvvmLight.Threading;
 using Mavic2Pro_GC.View;
+using Mavic2Pro_GC.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,17 +19,14 @@ namespace Mavic2Pro_GC
     {
         private readonly Dictionary<string, Type> navigationItems = new Dictionary<string, Type>()
         {
-            {"Login", typeof(UserLogin) }
+            // { "Login", typeof(UserLogin) },
+            { "Simple Takeoff and Land", typeof(SimpleTakeOffAndLanding) }
         };
 
         public MainPage()
         {
             this.InitializeComponent();
-
-        }
-
-        private void FlightControllerHandler_FlightTimeInSecondsChanged(object sender, IntMsg? value)
-        {
+            DispatcherHelper.Initialize();
         }
 
         private void NavView_Loaded(object sender, RoutedEventArgs e)
@@ -37,6 +36,8 @@ namespace Mavic2Pro_GC
 
             DJISDKManager.Instance.RegisterApp(key);
         }
+
+        internal CurrentConnectionStateViewModel ConnectionStateViewModel { get; set; }
 
         private async void Instance_SDKRegistrationEvent(SDKRegistrationState state, SDKError resultCode)
         {
@@ -52,6 +53,8 @@ namespace Mavic2Pro_GC
                     }
 
                     this.NavView.UpdateLayout();
+                    this.ConnectionStateViewModel = new CurrentConnectionStateViewModel();
+                    this.stackPanelConnectionStatus.DataContext = this.ConnectionStateViewModel;
                 });
             }
             else
