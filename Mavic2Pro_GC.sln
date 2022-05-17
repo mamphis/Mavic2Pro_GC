@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mavic2Pro_GC", "Mavic2Pro_GC\Mavic2Pro_GC.csproj", "{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalLibs", "ExternalLibs", "{A0EDAAF6-EA2A-43E8-B206-39A4B4280036}"
+	ProjectSection(SolutionItems) = preProject
+		ExternalLibs\DJIWindowsSDK.dll = ExternalLibs\DJIWindowsSDK.dll
+		ExternalLibs\DJIWindowsSDK.XML = ExternalLibs\DJIWindowsSDK.XML
+		ExternalLibs\DJIWindowsWrapper.dll = ExternalLibs\DJIWindowsWrapper.dll
+		ExternalLibs\DJIWindowsWrapper.winmd = ExternalLibs\DJIWindowsWrapper.winmd
+		ExternalLibs\pthread_dll-x64.dll = ExternalLibs\pthread_dll-x64.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|ARM.ActiveCfg = Debug|ARM
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|ARM.Build.0 = Debug|ARM
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|ARM.Deploy.0 = Debug|ARM
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|ARM64.Build.0 = Debug|ARM64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|x64.ActiveCfg = Debug|x64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|x64.Build.0 = Debug|x64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|x64.Deploy.0 = Debug|x64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|x86.ActiveCfg = Debug|x86
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|x86.Build.0 = Debug|x86
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Debug|x86.Deploy.0 = Debug|x86
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|ARM.ActiveCfg = Release|ARM
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|ARM.Build.0 = Release|ARM
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|ARM.Deploy.0 = Release|ARM
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|ARM64.ActiveCfg = Release|ARM64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|ARM64.Build.0 = Release|ARM64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|ARM64.Deploy.0 = Release|ARM64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|x64.ActiveCfg = Release|x64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|x64.Build.0 = Release|x64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|x64.Deploy.0 = Release|x64
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|x86.ActiveCfg = Release|x86
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|x86.Build.0 = Release|x86
+		{7525E6A8-4D55-4FA8-B4D1-1EA7661A7A78}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {84354C93-CE19-4C46-AE7F-7E1E0752B7C3}
+	EndGlobalSection
+EndGlobal
