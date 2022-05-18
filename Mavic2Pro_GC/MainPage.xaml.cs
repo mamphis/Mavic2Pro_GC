@@ -8,6 +8,7 @@ using System.IO;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+
 // Die Elementvorlage "Leere Seite" wird unter https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x407 dokumentiert.
 
 namespace Mavic2Pro_GC

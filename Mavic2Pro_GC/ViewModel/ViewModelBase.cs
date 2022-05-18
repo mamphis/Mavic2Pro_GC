@@ -11,6 +11,13 @@ namespace Mavic2Pro_GC.ViewModel
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
+        protected void SetProperty<T>(ref T field, T value, [CallerMemberName] string fieldName = null)
+        {
+            System.Diagnostics.Debug.WriteLine($"Changing {fieldName} from {field} to {value}");
+            field = value;
+            this.OnPropertyChanged(fieldName);
+        }
+
         /// <summary>
         /// Occurs immediately after a property of this instance has changed.
         /// </summary>
@@ -19,7 +26,7 @@ namespace Mavic2Pro_GC.ViewModel
         /// <summary>
         /// Raises the <see cref="PropertyChanged"/> event.
         /// </summary>
-        protected async void OnPropertyChanged([CallerMemberName] string changedPropertyName = "")
+        protected async void OnPropertyChanged(string changedPropertyName)
         {
             // The OnPropertyChanged is not virtual itself because of the [CallerMemberName] attribute which in case overridden should be put in every override - quite error-prone.
             this.PropertyChangedOverride(changedPropertyName);
