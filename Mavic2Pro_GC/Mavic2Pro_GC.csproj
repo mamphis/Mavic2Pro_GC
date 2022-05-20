@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>8AFB5E2471EE1C9B2CA49DBBCA7BE7A1FAD0D7A4</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>C4ED33CA8684A8E408F8C366FA36797AB9FF89AD</PackageCertificateThumbprint>
     <PackageCertificateKeyFile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -129,6 +129,9 @@
     <Compile Include="ViewModel\CurrentConnectionStateViewModel.cs" />
     <Compile Include="ViewModel\SimpleTakeOffAndLandingViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\LiveVideoFeed.xaml.cs">
+      <DependentUpon>LiveVideoFeed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SimpleTakeOffAndLanding.xaml.cs">
       <DependentUpon>SimpleTakeOffAndLanding.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\LiveVideoFeed.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\SimpleTakeOffAndLanding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,9 +211,7 @@
     <None Include="Mavic2Pro_GC_TemporaryKey.pfx" />
     <PRIResource Include="Strings\en\Resources.resw" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DJIVideoParser\DJIVideoParser.vcxproj">
       <Project>{5f8b4a30-b8d1-46b5-be32-aee3c899e3bf}</Project>

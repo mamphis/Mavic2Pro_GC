@@ -8,7 +8,7 @@
 
   <Identity
     Name="de.pcsmw.Mavic2Pro-GC"
-    Publisher="CN=Mattis"
+    Publisher="CN=&quot;Henry &quot;"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="ce8a2c42-bfc1-4660-a7e7-ce47aca8eed8" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
