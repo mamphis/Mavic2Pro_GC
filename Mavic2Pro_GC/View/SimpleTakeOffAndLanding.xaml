@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="Mavic2Pro_GC.View.SimpleTakeOffAndLanding"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Mavic2Pro_GC.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Grid.Row ="0" Margin="24">
+            <Button Margin="2" x:Name="btnTakeOff" Command="{Binding TakeOffCommand}">Take Off</Button>
+            <Button Margin="2" x:Name="btnLand" Command="{Binding LandCommand}">Land</Button>
+            <Button Margin="2" x:Name="btnConfirmLand" Command="{Binding ConfirmLandCommand}">Confirm Land</Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="8" Text="Is Flying?"></TextBlock>
+                <CheckBox IsChecked="{Binding IsFlying}" />
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Margin="8" Text="Is Landing Confirmation Needed?"></TextBlock>
+                <CheckBox IsChecked="{Binding IsLandingConfirmationNeeded}" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
