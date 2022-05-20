@@ -1,0 +1,17 @@
+C:\dev\C_Sharp\Mavic2Pro_GC\x64\Debug\DJIVideoParser\DJIVideoParser.pri
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\DJIVideoParser.vcxproj.AssemblyReference.cache
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\priconfig.xml
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\priconfig.xml.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\unfiltered.layout.resfiles
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\unfiltered.layout.resfiles.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\filtered.layout.resfiles
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\filtered.layout.resfiles.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\excluded.layout.resfiles
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\excluded.layout.resfiles.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\resources.resfiles
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\resources.resfiles.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\pri.resfiles
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\pri.resfiles.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\qualifiers.txt
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\qualifiers.txt.intermediate
+C:\dev\C_Sharp\Mavic2Pro_GC\DJIVideoParser\x64\Debug\MultipleQualifiersPerDimensionFound.txt

@@ -42,7 +42,7 @@ namespace Mavic2Pro_GC
         {
             if (resultCode == SDKError.NO_ERROR)
             {
-                System.Diagnostics.Debug.WriteLine("Register app successfully.");
+                System.Diagnostics.Debug.WriteLine("Registered app successfully.");
                 await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
                 {
 
