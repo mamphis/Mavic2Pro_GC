@@ -3,13 +3,13 @@
 ## Step 1
 
 - [x] Create an application that registers the app in dji
-- [ ] Create a view that let you control the uav
-  - [ ] Automatic takeOff
-  - [ ] Automatic landing
+- [x] Create a view that let you control the uav
+  - [x] Automatic takeOff
+  - [x] Automatic landing
 
 ## Step 2
 
-- [ ] Create a view that displays the current camera feed in the application
+- [x] Create a view that displays the current camera feed in the application
 - [ ] Create an overlay for the camera feed
   - [ ] Crosshair
   - [ ] Gimbal
