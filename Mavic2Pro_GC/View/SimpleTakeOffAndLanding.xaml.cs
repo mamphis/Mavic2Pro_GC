@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mavic2Pro_GC.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,27 +28,17 @@ namespace Mavic2Pro_GC.View
             this.InitializeComponent();
         }
 
-        private void btnTakeOff_Click(object sender, RoutedEventArgs e)
-        {
-            var msgbox = new ContentDialog
-            {
-                Title = "Button",
-                Content = "The aircraft will now take off ;)",
-                CloseButtonText = "OK"
-            };
-            msgbox.ShowAsync();
-        }
+        internal SimpleTakeOffAndLandingViewModel VM { get; private set; }
 
-        private void btnLand_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var msgbox = new ContentDialog
-            {
-                Title = "Button",
-                Content = "The aircraft will now try to land ;)",
-                CloseButtonText = "OK"
-            };
-            msgbox.ShowAsync();
+            base.OnNavigatedTo(e);
 
+            var currentConnectionState = e.Parameter as CurrentConnectionStateViewModel;
+            if (currentConnectionState != null)
+            {
+                this.DataContext = new SimpleTakeOffAndLandingViewModel(currentConnectionState);
+            }
         }
     }
 }

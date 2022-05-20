@@ -10,8 +10,17 @@
 
     <Grid>
         <StackPanel Grid.Row ="0" Margin="24">
-            <Button x:Name="btnTakeOff" Click="btnTakeOff_Click">Take Off</Button>
-            <Button x:Name="btnLand" Click="btnLand_Click">Land</Button> 
+            <Button Margin="2" x:Name="btnTakeOff" Command="{Binding TakeOffCommand}">Take Off</Button>
+            <Button Margin="2" x:Name="btnLand" Command="{Binding LandCommand}">Land</Button>
+            <Button Margin="2" x:Name="btnConfirmLand" Command="{Binding ConfirmLandCommand}">Confirm Land</Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="8" Text="Is Flying?"></TextBlock>
+                <CheckBox IsChecked="{Binding IsFlying}" />
+            </StackPanel>
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock Margin="8" Text="Is Landing Confirmation Needed?"></TextBlock>
+                <CheckBox IsChecked="{Binding IsLandingConfirmationNeeded}" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

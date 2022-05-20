@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>4C6EC59817242014B80B1C218FA650F5B514A31B</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>8AFB5E2471EE1C9B2CA49DBBCA7BE7A1FAD0D7A4</PackageCertificateThumbprint>
     <PackageCertificateKeyFile />
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -127,6 +127,7 @@
     <Compile Include="Model\UserLoginModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\CurrentConnectionStateViewModel.cs" />
+    <Compile Include="ViewModel\SimpleTakeOffAndLandingViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Compile Include="View\SimpleTakeOffAndLanding.xaml.cs">
       <DependentUpon>SimpleTakeOffAndLanding.xaml</DependentUpon>

@@ -73,7 +73,7 @@ namespace Mavic2Pro_GC
                 Type page = this.navigationItems[invokedItem];
                 if (this.ContentFrame.SourcePageType != page)
                 {
-                    this.ContentFrame.Navigate(page);
+                    this.ContentFrame.Navigate(page, this.ConnectionStateViewModel);
                 }
             }
         }
