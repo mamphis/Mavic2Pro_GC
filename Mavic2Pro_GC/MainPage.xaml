@@ -5,16 +5,65 @@
     xmlns:local="using:Mavic2Pro_GC"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
     <Grid>
         <NavigationView x:Name="NavView"
                         ItemInvoked="NavView_ItemInvoked"
                         IsSettingsVisible="False"
                         Loaded="NavView_Loaded"
                         Header="Mavic2Pro Ground Control">
-            <Frame x:Name="ContentFrame" Margin="24"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Frame Grid.Row="0" x:Name="ContentFrame" Margin="24"/>
+
+                <Grid Grid.Row="1" x:Name="stackPanelConnectionStatus" Margin="24,0,24,8" DataContext="{Binding ConnectionStateViewModel}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*" />
+                        <RowDefinition Height="0.5*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*" />
+                        <ColumnDefinition Width="0.5*" />
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <Ellipse Height="16" Width="16" Fill="Red" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <interactivity:Interaction.Behaviors>
+                                <core:DataTriggerBehavior Binding="{Binding IsConnected}" Value="True">
+                                    <core:ChangePropertyAction PropertyName="Fill" Value="Lime"/>
+                                </core:DataTriggerBehavior>
+                                <core:DataTriggerBehavior Binding="{Binding IsConnected}" Value="False">
+                                    <core:ChangePropertyAction PropertyName="Fill" Value="Red"/>
+                                </core:DataTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+                        </Ellipse>
+
+                        <TextBlock x:Uid="ConnectionTypeLabel" Margin="8,0,8,0"/>
+                        <TextBlock Text="{Binding CurrentConnectedAircraft}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
+                        <TextBlock x:Uid="AircraftNameLabel" Margin="0,0,8,0" />
+                        <TextBlock Text="{Binding AircraftName}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                        <TextBlock Text="{Binding CompassStateMessage}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <Image Source="Assets/Icons/satellite-solid.svg" Height="16" Width="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding SatelliteCount}" Margin="8,0,8,0" />
+                        <Image Source="Assets/Icons/signal-solid.svg" Height="16" Width="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding SignalStrength}" Margin="8,0,8,0" />
+                        <Image Source="Assets/Icons/battery-solid.svg" Height="16" Width="16" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                        <TextBlock Text="{Binding BatteryInformation}" Margin="8,0,8,0" />
+                    </StackPanel>
+                </Grid>
+            </Grid>
         </NavigationView>
     </Grid>
 </Page>
