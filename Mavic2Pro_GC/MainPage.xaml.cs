@@ -21,7 +21,8 @@ namespace Mavic2Pro_GC
         private readonly Dictionary<string, Type> navigationItems = new Dictionary<string, Type>()
         {
             // { "Login", typeof(UserLogin) },
-            { "Simple Takeoff and Land", typeof(SimpleTakeOffAndLanding) }
+            { "Simple Takeoff and Land", typeof(SimpleTakeOffAndLanding) },
+            { "Video Feed", typeof(LiveVideoFeed) }
         };
 
         public MainPage()
