@@ -1,5 +1,6 @@
 ﻿using DJI.WindowsSDK;
 using DJI.WindowsSDK.Components;
+using System.Linq;
 
 namespace Mavic2Pro_GC.ViewModel
 {
@@ -14,10 +15,16 @@ namespace Mavic2Pro_GC.ViewModel
         private float _batteryVoltage;
         private int _batteryChargeRemaining;
         private float _batteryTemperature;
+        private string _imuStateMessage;
+        private string _compassStateMessage;
+        private bool _compassHasError;
 
         private readonly ProductHandler productHandler;
         private readonly FlightControllerHandler flightControllerHandler;
         private readonly BatteryHandler batteryHandler;
+        private readonly FlightAssistantHandler flightAssistantHandler;
+
+
         public CurrentConnectionStateViewModel()
         {
             this.productHandler = DJISDKManager.Instance.ComponentManager.GetProductHandler(0);
@@ -61,18 +68,23 @@ namespace Mavic2Pro_GC.ViewModel
             get => $"{_powerConsumption:0.00}A, {_batteryVoltage:0.00}V, {_batteryChargeRemaining}%, {_batteryTemperature:0.0}°C";
         }
 
+        public string CompassStateMessage
+        {
+            get => this._compassStateMessage;
+            set => SetProperty(ref this._compassStateMessage, value);
+        }
+
+        public string IMUStateMessage
+        {
+            get => this._imuStateMessage;
+            set => SetProperty(ref this._imuStateMessage, value);
+        }
+
         private async void InitializeDefaultValues()
         {
             ProductTypeMsg? productType = (await this.productHandler.GetProductTypeAsync()).value;
-            if (productType != null && productType?.value != ProductType.UNRECOGNIZED)
-            {
-                this.CurrentConnectedAircraft = productType.ToString();
-            }
-            else
-            {
-                this.CurrentConnectedAircraft = "- none -";
-            }
 
+            this.CurrentConnectedAircraft = productType.ToString();
             this.AircraftName = (await this.flightControllerHandler.GetAircraftNameAsync()).value?.value ?? "";
             this.SatelliteCount = (await this.flightControllerHandler.GetSatelliteCountAsync()).value?.value ?? 0;
             this.IsConnected = (await this.flightControllerHandler.GetConnectionAsync()).value?.value ?? false;
@@ -84,6 +96,34 @@ namespace Mavic2Pro_GC.ViewModel
             this._batteryTemperature = (float)((await this.batteryHandler.GetBatteryTemperatureAsync()).value?.value ?? 0);
             this.OnPropertyChanged("BatteryInformation");
 
+            // 
+            var compassHasError = (await this.flightControllerHandler.GetCompassHasErrorAsync()).value?.value ?? false;
+            if (compassHasError)
+            {
+                this.flightControllerHandler.StartCompasCalibrationAsync();
+            }
+
+            var value = (await this.flightControllerHandler.GetCompassCalibrationStateAsync()).value;
+            this.CompassStateMessage = (value?.value.ToString()) ?? "";
+            this.IMUStateMessage = (await this.flightControllerHandler.GetIMUStateAsync()).value?.value.Select(state => state.calibrationState.ToString() + ", " + state.multipleOrientationCalibrationHint.state.ToString()).Aggregate((a, b) => a + "; " + b);
+            //switch (a.Value)
+            //{
+            //    case FCCompassCalibrationState.IDLE:
+            //        break;
+            //    case FCCompassCalibrationState.HORIZONTAL:
+            //        break;
+            //    case FCCompassCalibrationState.VERTICAL:
+            //        break;
+            //    case FCCompassCalibrationState.SUCCEEDED:
+            //        break;
+            //    case FCCompassCalibrationState.FAILED:
+            //        break;
+            //    case FCCompassCalibrationState.UNKNOWN:
+            //        break;
+            //    default:
+            //        break;
+            //}
+
             this.productHandler.ProductTypeChanged += this.ProductHandler_ProductTypeChanged;
             this.flightControllerHandler.ConnectionChanged += this.FlightControllerHandler_ConnectionChanged;
             this.flightControllerHandler.AircraftNameChanged += this.FlightControllerHandler_AircraftNameChanged;
@@ -93,6 +133,28 @@ namespace Mavic2Pro_GC.ViewModel
             this.batteryHandler.VoltageChanged += this.BatteryHandler_VoltageChanged;
             this.batteryHandler.ChargeRemainingInPercentChanged += this.BatteryHandler_ChargeRemainingInPercentChanged;
             this.batteryHandler.BatteryTemperatureChanged += this.BatteryHandler_BatteryTemperatureChanged;
+            this.flightControllerHandler.CompassCalibrationStateChanged += this.FlightControllerHandler_CompassCalibrationStateChanged;
+            this.flightControllerHandler.IMUStateChanged += this.FlightControllerHandler_IMUStateChanged;
+            this.flightControllerHandler.CompassHasErrorChanged += this.FlightControllerHandler_CompassHasErrorChanged;
+        }
+
+        private void FlightControllerHandler_CompassHasErrorChanged(object sender, BoolMsg? value)
+        {
+            var compassHasError = value?.value ?? false;
+            if (compassHasError)
+            {
+                this.flightControllerHandler.StartCompasCalibrationAsync();
+            }
+        }
+
+        private void FlightControllerHandler_IMUStateChanged(object sender, IMUStates? value)
+        {
+            this.IMUStateMessage = value?.value.Select(state => state.calibrationState.ToString() + ", " + state.multipleOrientationCalibrationHint.state.ToString()).Aggregate((a, b) => a + "; " + b);
+        }
+
+        private void FlightControllerHandler_CompassCalibrationStateChanged(object sender, FCCompassCalibrationStateMsg? value)
+        {
+            this.CompassStateMessage = (value?.value.ToString()) ?? "";
         }
 
         private void BatteryHandler_BatteryTemperatureChanged(object sender, DoubleMsg? value)
